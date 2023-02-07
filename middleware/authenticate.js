@@ -23,7 +23,7 @@ const Authenticate = async (req, res, next) => {
     req.userID = rootUser._id;
     next();
   } catch (err) {
-    res.status(401).send("unauth");
+    return res.status(401).json({ error: err });
     console.log(err);
   }
 };
