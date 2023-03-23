@@ -3,7 +3,7 @@ const { countDocuments } = require("../models/usermodel");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
-const solved = require("../web-scrapping/codechef-ki-api.js");
+// const solved = require("../web-scrapping/codechef-ki-api.js");
 const cheerio = require("cheerio");
 const axios = require("axios");
 require("../db/conn");
