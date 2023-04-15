@@ -533,10 +533,13 @@ router.get("/profile/:id", (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
-  console.log("HELLO FROM logout");
-  // res.send("HELLO WORLD FROM SERVER");
-  res.clearCookie("jwtoken",{path:'/',domain:'www.mernbackend2-hgyy.onrender.com'});
-  res.status(200).send("user logout");
+  req.logOut();
+  res.status(200).clearCookie("connect.sid", {
+    path: "/",
+  }); 
+  req.session.destroy(function (err) {
+    res.redirect("/");
+  });
 });
 
 module.exports = router;
