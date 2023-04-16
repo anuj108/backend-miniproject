@@ -533,13 +533,10 @@ router.get("/profile/:id", (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
-  req.logOut();
-  res.status(200).clearCookie("connect.sid", {
-    path: "/",
-  }); 
-  req.session.destroy(function (err) {
-    res.redirect("/");
-  });
+  console.log("HELLO FROM logout");
+  // res.send("HELLO WORLD FROM SERVER");
+  res.clearCookie("jwtoken",{path:'/',domain:'https://codebook.onrender.com/'});
+  res.status(200).send("user logout");
 });
 
 module.exports = router;
